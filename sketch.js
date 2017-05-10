@@ -5,19 +5,20 @@ var kiBlue = 200;
 var x = 200;
 var y = 200;
 var i = [10,20,30,20,10];
-var speedx = 2.5;
-var speedy = 2.5;
+var speedx = 9.5;
+var speedy = 9.5;
+
 
 
 
 
 function preload(){
-mySound = loadSound('js/deepunder.mp3'); 
+mySound = loadSound('js/lightshow.mp3'); 
 }
 
 function  setup(){
    createCanvas(600,600); 
-   background(255);
+   background(0);
    
    kiBlue = random(0,255);
    kiGreen = random(0,255);
@@ -30,13 +31,13 @@ function draw(){
    kiBlue = random(0,255);
    kiGreen = random(0,255);
    kiRed = random(0,255);
-   background(255);
+   background(0);
  
-if(mouseIsPressed){
+
      background(255);
       stroke(0);
        ellipse(x,y,75,75)
-       fill(0,0,kiBlue,60);
+       fill(255);
     
      y = y + speedy;
     x = x + speedx;
@@ -48,7 +49,7 @@ if(mouseIsPressed){
  } 
 
        
-}
+
 circles();
 bottomRow();
 }
@@ -56,31 +57,28 @@ bottomRow();
 
 
 
-function mousePressed(){
-    mySound.play();
-   }
+function mouseClicked(){
+     if(mySound.isPlaying()){
+         mySound.pause(); 
+     }
+     else{
+        mySound.play();   
+     }
+ } 
 
 
-function mouseReleased(){
-    mySound.pause();
-}
+//function mouseReleased(){
+//  mySound.pause()
+//}
 
-//function act(){
-  //  if(mouseIsPressed){
-   // mySound.play();    
- //   }
-  //  else{
-      //  mysound.pause();
-   // }
-//} 
 
 
 function circles(y){
     size = [10];
   for(var y = 50; y <= 450; y = y + 100){
-    stroke(255,90);
-    fill(188,71,kiBlue,90);
-    rect(x,y,75,75);
+    stroke(0);
+    fill(kiRed,0,0,90);
+    triangle(x,y,25,100,75,50);
     
    }  
 }
@@ -88,9 +86,9 @@ function circles(y){
 function bottomRow(x){
    size = [10];
   for(var x = 50; x <= 450; x = x + 100){
-    stroke(255);
-    fill(247,150,kiBlue,90);
-    rect(x,y,75,75);
+    stroke(0);
+    fill(0,90);
+    triangle(x,y,25,100,75,50);
   }
  
 }
